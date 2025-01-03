@@ -7,6 +7,7 @@
 \usepackage{marvosym}
 \usepackage{titlesec}
 \usepackage{enumitem}
+\usepackage{bm}
 \renewcommand\qedsymbol{\Squarepipe}
 
 \titleformat{\section}
@@ -16,7 +17,67 @@
     {}
 
 \begin{document}
- \section*{Geomectric Perspective}
-ewergy
+ Para empezar, supongamos que tenemos una colección de $\textbf{n}$ datos que dependen de $\textbf{p}$ variables, de esta forma entraremos en el problema de como encontrar una regresión que nos apróxime estos puntos y esto nos ayude a predecir el comportamiento, el "mejor" de los casos sería en el que la regresión interpole todos los puntos, sin embargo esto no es siempre posible, veámoslo a continuación.
+
+ \section*{Interpretación algebraica}
+
+Notemos que hallar la regresión es hallar los coeficientes $b_i$ de la ecuación $y=b_0+b_1x_1+b_2x_2\cdots+b_px_p$.\\
+Llamemos \bm{$b$} al vector que contiene los $b_i$, \textbf{Y} el vector que contiene los resultados de las observaciones, los cuales denotaremos por $y_i$, $A_0$ como una vector de dimensión $1$x$n$ de unos, y $A_i$ como una vector de dimensión $1$x$n$ de los puntos considerados de la variable $x_i$, y por ultimo \textbf{X} como la matriz compuesta por los vectores columna $A_0,A_1,\cdots,A_i$. De esta forma, para hallar los $b_i$ de manera que interpolara todos los puntos de nuestros datos sería resolver el siguiente sistema:\\
+\[
+\begin{pmatrix}
+1 & x_{11} & \cdots & x_{1p}\\
+\vdots & \vdots & \ddots & \vdots \\
+1 & x_{n1} & \cdots & x_{np}
+\end{pmatrix}
+\begin{pmatrix}
+b_0 \\
+\vdots \\
+b_p 
+\end{pmatrix}
+=
+\begin{pmatrix}
+y_1\\
+\vdots\\
+y_n
+\end{pmatrix}
+\]
+\\
+donde $x_{ij}$ representa el $i$-ésimo valor de la variable $x_j$.
+\\
+De esta forma, el sistema sólo tendrá solución si $\bm{Y}\in{Col(X)}$, lo cual no es necesariamente cierto, así que tendremos que buscar otra manera.\\
+\\
+Vamos a buscar $\bm{\hat{b}}$ tal que la expresión $\bm{r}:=\bm{Y}-\bm{X}\bm{\hat{b}}$ sea minimizada, donde $\bm{r}$ es nuestro vector residual y además, claramente $\bm{\hat{Y}}:=\bm{X}\bm{\hat{b}}\in{Col(X)}$. Por lo tanto nuestro proposito es que el residuo sea el menor posible y esto será (por conveniecia) minimizar la norma al cuadrado del residual, es decir:
+\[
+\sum_{i=1}^{n}r_i^2=||\bm{Y}-\bm{X}\bm{\hat{b}}||^2
+\]
+
+Donde $r_i$ es el $i$-ésimo componente de $\bm{r}$. Ahora, para minimizar, usaremos cálculo de matrices.
+
+Sabemos que $||\bm{Y}-\bm{X}\bm{\hat{b}}||^2=(\bm{Y}-\bm{X}\bm{\hat{b}})^T\cdot(\bm{Y}-\bm{X}\bm{\hat{b}})=\bm{r}^T\cdot\bm{r}$, ahora derivemos esto con respecto a $\bm{\hat{b}}$ e igualemos con 0.
+
+\[
+\frac{\partial{\bm{r}^T\cdot\bm{r}}}{\partial\bm{\hat{b}}}=\frac{\partial}{\partial\bm{\hat{b}}}[(\bm{Y}-\bm{X}\bm{\hat{b}})^T\cdot(\bm{Y}-\bm{X}\bm{\hat{b}})]
+\]
+\[\hspace{2.2cm}
+=\frac{\partial}{\partial\bm{\hat{b}}}[\bm{Y}^T\bm{Y}-2\bm{Y}^T(\bm{X\bm{\hat{b}}})+\bm{\hat{b}}\bm{X}^T\bm{X}\bm{\hat{b}}]
+\]
+\[\hspace{0.4cm}
+=0-2\bm{X}^T\bm{Y}+2\bm{X}^T\bm{X}\bm{\hat{b}}
+\]
+\\
+Y de esta forma, igualando con 0, tenemos que $\bm{X}^T\bm{X}\bm{\hat{b}}=\bm{X}^T\bm{Y}$. Las cuales son llamadas ecuaciones normales, donde los $\bm{\hat{b}}$ que cumplan las mismas serán nuestras soluciones.\\
+\\
+Lo cual es congruente con el razonamiento geométrico asumiendo que el resultado es único, pues, si tomamos nuestra ecuación original y multiplicamos por $\bm{X}^T$ a ambos lados, obtenemos que $\bm{X}^T\bm{X}\bm{b}=\bm{X}^T\bm{Y}$ esto es la proyección ortogonal de $\bm{Y}$ sobre $Col(X)$ y esto, si vemos los componentes de $\bm{b}$ como un punto de $\mathbb{R}^p$, es precisamente, la distancia más corta desde dicho punto hasta $Col(X)$ y dada proyección ortogonal viene dada por $\bm{\hat{Y}}=\bm{X}(\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{Y}$, lo que tenemos en el lado derecho de la ecuación es justamente la proyección ortogonal de $\bm{Y}$ sobre $Col(X)$ y lo igualamos con $\bm{\hat{Y}}$ ya que este será el punto sobre $Col(X)$ con la distacia más corta a $\bm{Y}$, que es lo que buscamos. Así:\\
+\[
+\bm{X\hat{b}}=\bm{X}(\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{Y}
+\]
+\[
+\bm{\hat{b}}=(\bm{X}^T\bm{X})^{-1}\bm{X}^T\bm{Y}
+\]
+\[
+\bm{X}^T\bm{X}\bm{\hat{b}}=\bm{X}^T\bm{Y}
+\]
+
+
 
 \end{document}
