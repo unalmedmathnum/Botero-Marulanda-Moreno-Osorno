@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{graphicx}
+
+\title{Problema de consumo energetico de una cinta transportadora}
+\author{Juan E Osorno D.}
+\date{January 2025}
+
+\begin{document}
+
+\section{Introduction al problema}
+Supongamos que tenemos una cinta transportadora de mercancia y deseamos conocer el consumo energetico de la misma.
+
+Sean $x,y$ y $z$ variables que describen la temperatura del ambiente en $C°$ la velocidad de la operacion en revoluciones por segundo
+y la carga implicada en la operacion. Sea $w = \alpha_0  + \alpha_1 x + \alpha_2 y + \alpha_3 z$ donde $\alpha_0,\alpha_1,\alpha_2 y \alpha_3$
+representan el cambio de todas estas variables. 
+
+Un trabajador investiga la maquina y realiza una tabla de datos que muestra como cambian estas variables de la siguiente manera:
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+    \hline
+    \textbf{Punto} & $x$ (\textdegree C) & $y$ (RPM) & $z$ (kg) & $w$ (kWh) \\ \hline
+    1              & 25                  & 1500      & 50       & 200       \\ \hline
+    2              & 30                  & 1600      & 55       & 220       \\ \hline
+    3              & 28                  & 1550      & 52       & 210       \\ \hline
+    4              & 35                  & 1700      & 60       & 250       \\ \hline
+    5              & 40                  & 1800      & 65       & 280       \\ \hline
+    \end{tabular}
+    \caption{Tabla de datos}
+    \label{tab:datos}
+    \end{table}
+
+Nuestro objetivo es conocer es monitoriar como esta cambiando el consumo energertico de la maquina en relacion 
+con todas estas variables 
+\end{document}
