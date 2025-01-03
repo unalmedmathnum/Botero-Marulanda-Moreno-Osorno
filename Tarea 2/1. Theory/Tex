@@ -18,9 +18,9 @@
 
 \begin{document}
 
-Empecemos por suponer que tenemos una colección de $\textbf{n}$ datos que dependen de $\textbf{p}$ variables, de esta forma entraremos en el problema de como encontrar una regresión que nos apróxime estos puntos y esto nos ayude a predecir el comportamiento, el "mejor" de los casos sería en el que la regresión interpole todos los puntos, sin embargo esto no es siempre posible, veámoslo a continuación.\\
+Empecemos por suponer que tenemos una colección de $\textbf{n}$ datos que dependen de $\textbf{p}$ variables, de esta forma entraremos en el problema de como encontrar una regresión que nos apróxime estos puntos y esto nos ayude a predecir su comportamiento, en caso de ser un fenómeno. El "mejor" de los casos sería en el que la regresión interpole todos los puntos, sin embargo esto no es siempre posible, veámoslo a continuación.\\
  \\
-Notemos que hallar la regresión es hallar los coeficientes $b_i$ de la ecuación $y=b_0+b_1x_1+b_2x_2\cdots+b_px_p$.\\
+Notemos que hallar la regresión es hallar los coeficientes $b_i$ de la ecuación $y=b_0+b_1x_1+b_2x_2+\cdots+b_px_p$.\\
 Llamemos \bm{$b$} al vector que contiene los $b_i$, \textbf{Y} el vector que contiene los resultados de las observaciones, los cuales denotaremos por $y_i$, $A_0$ como una vector de dimensión $1$x$n$ de unos, y $A_i$ como una vector de dimensión $1$x$n$ de los puntos considerados de la variable $x_i$, y por ultimo \textbf{X} como la matriz compuesta por los vectores columna $A_0,A_1,\cdots,A_i$. De esta forma, para hallar los $b_i$ de manera que interpolara todos los puntos de nuestros datos sería resolver el siguiente sistema:\\
 \[
 \begin{pmatrix}
