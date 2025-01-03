@@ -17,10 +17,9 @@
     {}
 
 \begin{document}
- Para empezar, supongamos que tenemos una colección de $\textbf{n}$ datos que dependen de $\textbf{p}$ variables, de esta forma entraremos en el problema de como encontrar una regresión que nos apróxime estos puntos y esto nos ayude a predecir el comportamiento, el "mejor" de los casos sería en el que la regresión interpole todos los puntos, sin embargo esto no es siempre posible, veámoslo a continuación.
 
- \section*{Interpretación algebraica}
-
+Empecemos por suponer que tenemos una colección de $\textbf{n}$ datos que dependen de $\textbf{p}$ variables, de esta forma entraremos en el problema de como encontrar una regresión que nos apróxime estos puntos y esto nos ayude a predecir el comportamiento, el "mejor" de los casos sería en el que la regresión interpole todos los puntos, sin embargo esto no es siempre posible, veámoslo a continuación.\\
+ \\
 Notemos que hallar la regresión es hallar los coeficientes $b_i$ de la ecuación $y=b_0+b_1x_1+b_2x_2\cdots+b_px_p$.\\
 Llamemos \bm{$b$} al vector que contiene los $b_i$, \textbf{Y} el vector que contiene los resultados de las observaciones, los cuales denotaremos por $y_i$, $A_0$ como una vector de dimensión $1$x$n$ de unos, y $A_i$ como una vector de dimensión $1$x$n$ de los puntos considerados de la variable $x_i$, y por ultimo \textbf{X} como la matriz compuesta por los vectores columna $A_0,A_1,\cdots,A_i$. De esta forma, para hallar los $b_i$ de manera que interpolara todos los puntos de nuestros datos sería resolver el siguiente sistema:\\
 \[
@@ -77,7 +76,12 @@ Lo cual es congruente con el razonamiento geométrico asumiendo que el resultado
 \[
 \bm{X}^T\bm{X}\bm{\hat{b}}=\bm{X}^T\bm{Y}
 \]
-
-
+\\
+Ahora, ¿Cómo es aplicable esta teoría a nuestra realidad? Bien, pues es realmente importante para el análisis de datos, pues nos permite modelar y predecir  comportamientos de fenómenos en nuestra realidad.\\
+\\
+Cuando hablamos de la construcción de nuestro modelo, es muy bueno, porque se adapta de manera apropiada, ya que apesar de que en la vida real no tendremos comportamientos estrictos como el de una función, sí tendremos patrones y por consecuencia un método con el que podremos aproximarnos de gran manera.\\
+Y en cuanto a los resultados también es realmente útil, pues gracias a su construcción es realmente fiable para realizar predicciones en el comportamiento de los fenómenos y en consecuencia con esto tomar acciones que nos lleven a obtener resultados distintos.\\
+\\
+Gracias a estas cosas el método de los mínimos cuadrados tiene aplicaciones en diversos sectores, cómo lo puede ser el crecimiento poblacional, agricultura, economía, ingeniería, róbotica, entre otras. Entre ellas el consumo energético, lo cual será objeto de práctica de nuestra en la siguiente sección 2 de este trabajo.
 
 \end{document}
