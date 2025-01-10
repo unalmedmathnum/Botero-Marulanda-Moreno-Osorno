@@ -8,12 +8,7 @@
 \begin{document}
 
 \section{Contexto del problema}
-Supongamos que tenemos una cinta transportadora de mercancia y deseamos conocer el consumo energetico de la misma.
-
-Sean $x,y$ y $z$ variables que describen la temperatura del ambiente en $C°$ la velocidad de la operacion en revoluciones por segundo
-y la carga implicada en la operacion. Sea $w = \alpha_0  + \alpha_1 x + \alpha_2 y + \alpha_3 z$ donde $\alpha_0,\alpha_1,\alpha_2 y \alpha_3$
-representan el cambio de todas estas variables. 
-
+Supongamos que tenemos una cinta transportadora de mercancia y deseamos conocer el consumo energetico de la misma. 
 Un trabajador investiga la maquina y realiza una tabla de datos que muestra como cambian estas variables de la siguiente manera:
 \begin{table}[h!]
     \centering
@@ -30,6 +25,12 @@ Un trabajador investiga la maquina y realiza una tabla de datos que muestra como
     \label{tab:datos}
     \end{table}
 
+Con estos datos se sospecha que el modelo que aproxima los datos es lineal.
+
+Sean $x,y$ y $z$ variables que describen la temperatura del ambiente en $C°$ la velocidad de la operacion en revoluciones por segundo
+y la carga implicada en la operacion. Sea $w = \alpha_0  + \alpha_1 x + \alpha_2 y + \alpha_3 z$ donde $\alpha_0,\alpha_1,\alpha_2 y \alpha_3$
+representan el cambio de todas estas variables. 
+
 Nuestro objetivo sera encontrar las variables $\alpha_0,\alpha_1,\alpha_2 y \alpha_3$ que predicen cual sera el consumo energetico de la maquina
 dados estos datos
 \section{Importancia del problema}
@@ -38,4 +39,7 @@ Supongase que usted es un empresario que desea conocer el consumo energetico de 
 trabajadores hacen un estudio y sacan los datos de la tabla anterior, entonces su deseo es conocer de acuerdo con esos datos cual es el
 gasto energetico de la maquina y saber si se pueden cambiar las condiciones del ambiente, velocidad y peso para que dicho consumo sea mas 
 minimo y asi ahorrar gastos.
+\section{Problema de la relacion entre las horas de estudio y las clificaciones}
+
+Un profesor desea estudiar la relacion entre las horas de estudio de un 
 \end{document}
