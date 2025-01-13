@@ -69,22 +69,24 @@ en el parcial como sigue en la siguiente tabla:
     \label{tabla:horas_estudio_aplanada}
 \end{table}
 
-Se sospecha que el modelo que mejor aproxima estos datos es $y = \lambda(1-e^\beta x)$. Ahora para este modelo vamos a 
-considerar el sistema de ecuaciones: $X\vec{b} = \vec{y}$ donde X es la matriz que cumple
-\begin{center}
-$ \mathbf{X} = \begin{pmatrix} 1 & e^{\beta x_1} \\ 1 & e^{\beta x_2} \\ ... & ... \\ 1 & e^{\beta x_14} \end{pmatrix} $  
-\end{center}
-
-Donde \(x_i\) son los valores de \(x\) en los datos observados en la tabla anterior. Ademas $\vec{b} = (\lambda,\beta)$ y 
-$\vec{y} = (y_1,y_2,...y_14)$ son los vectores que satisfacen con el sistema de ecuaciones.
-
-Ahora multiplicando por $X^T$ a la izquierda miembro a miembro tenemos que 
+Se sospecha que el modelo que mejor aproxima la nube de datos de la tabla anterior es la ecuacion
 
 \begin{center}
-    $X^TX \vec{b} = X^T \vec{y}$
+    $y = \alpha /x + \beta$
 \end{center}
 
-y despejando $\vec{b}$ deberiamos obtener los $\lambda$ y $\beta$ para los cuales ese sistema se cumple y por tanto
-la funcion mejor aproxima nuestra nube de puntos.
+reemplazando los datos de la tabla ecuacion formamos el sistema de ecuaciones $X \vec{b} = \vec{y}$. Donde $X$ es la matriz que cumple ser:
+
+$ X = \begin{pmatrix} 1 & 1/x_1 \\ 1 & 1/x_2 \\ ... \\ 1 & 1/x_14 \end{pmatrix}$
+
+y $\vec{b} = (A,B)$ como $\vec{y} = (y_1, y_2,...,y_14)$ son los vectores que satisfacen el sistema de ecuaciones anterior sustituyendo los datos
+de la tabla. 
+
+Nuestro siguiente paso sera solucionar el sistema, para ello debemos multiplicar por $X^T$ miembro a miembro de la ecuacion a la izquierda,
+entonces: 
+
+\begin{center}
+    $X^T X \vec{b} = X^T \vec{y}$    
+\end{center}
 
 \end{document}
