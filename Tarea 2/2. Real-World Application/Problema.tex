@@ -43,7 +43,7 @@ minimo y asi ahorrar gastos.
 
 Un profesor desea estudiar la relacion entre las horas de estudio de un estudiante y la nota que obtiene. El profesor
 realiza una encuesta a sus estudiantes preguntando cuantas horas estudia, y realiza una tabla con sus notas obtenidas 
-en el parcial.
+en el parcial como sigue en la siguiente tabla:
 
 \begin{table}[h!]
     \centering
@@ -60,10 +60,17 @@ en el parcial.
     7  & 7  & 95   \\
     8  & 8  & 98   \\
     9  & 9  & 99   \\
-    10 & 10 & 100  \\
+    10 & 10 & 98  \\
+    11  & 7  & 95   \\
+    12  & 8  & 98   \\
+    13  & 9  & 99   \\
+    14 & 10 & 100  \\
     \bottomrule
     \end{tabular}
     \caption{Datos simulados de horas de estudio y calificación con tendencia a estabilización.}
     \label{tabla:horas_estudio_aplanada}
     \end{table}
+
+Se sospecha que el modelo que mejor aproxima estos datos es $y = 100(1-e^(-0.5x))$
+
 \end{document}
