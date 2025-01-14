@@ -59,7 +59,16 @@ el pais en dolares, las cuales se pueden visualizaren la siguiente tabla:
     \end{tabular}
 \end{table}
 
-Nuestro deseo es predecir las ventas del shampoo
+Sospechamos que el modelo que mejor aproxima estos datos es:
+
+\begin{center}
+    $z = \alpha_0 + \alpha_1 x + \alpha_2 y$
+\end{center}
+
+Nuestro objetivo sera entonces encontrar los $\alpha_0 , \alpha_1$ y $\alpha_2$ que satisfacen el sistema de ecuaciones
+$X \vec{a} = \vec{y}$ donde $X = \begin{pmatrix} 1 & x_1 & y_1 \\ 1 & x_2 & y_2 \\ ... & ... & ... \\ 1 & x_35 & y_35 \end{pmatrix}$
+y $\vec{b} = (\alpha_1, \alpha_2)$ como $\vec{y} = (y_1,y_2,...,y_35)$ donde $x$ y $y$ representan el precio y la promocion respectivamente.
+
 \section{Problema de la relacion entre las horas de estudio y las clificaciones}
 
 Un profesor desea estudiar la relacion entre las horas de estudio de un estudiante y la nota que obtiene. El profesor
@@ -102,11 +111,6 @@ $ X = \begin{pmatrix} 1 & 1/x_1 \\ 1 & 1/x_2 \\ ... \\ 1 & 1/x_14 \end{pmatrix}$
 y $\vec{b} = (A,B)$ como $\vec{y} = (y_1, y_2,...,y_14)$ son los vectores que satisfacen el sistema de ecuaciones anterior sustituyendo los datos
 de la tabla. 
 
-Nuestro siguiente paso sera solucionar el sistema, para ello debemos multiplicar por $X^T$ miembro a miembro de la ecuacion a la izquierda,
-entonces: 
-
-\begin{center}
-    $X^T X \vec{b} = X^T \vec{y}$    
-\end{center}
+Nuestro siguiente paso sera solucionar el sistema.
 
 \end{document}
