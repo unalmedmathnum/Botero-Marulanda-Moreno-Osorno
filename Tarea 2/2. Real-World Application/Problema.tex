@@ -8,38 +8,59 @@
 
 \begin{document}
 
-\section{Contexto del problema}
-Supongamos que tenemos una cinta transportadora de mercancia y deseamos conocer el consumo energetico de la misma. 
-Un trabajador investiga la maquina y realiza una tabla de datos que muestra como cambian estas variables de la siguiente manera:
-\begin{table}[h!]
+\section{Contexto del problema precios y gastos promocionales de un shampoo}
+
+Una empresa de elementos para el aseo personal tienen un nuevo prodcuto de shampoo "Walgreens Shampoo + plus
+(16 oz)". El departamento de precios y marketing de la empresa desea conocer el precio y los gastos promocionales
+del nuevo producto que desean lanzar al mercado que ayuden a incrementar sus ventas en el mercado, para obtener 
+resultados mas fiables la empresa selecciona 36 ejemplos de tiendas donde venden su producto alrededor de todo 
+el pais en dolares, las cuales se pueden visualizaren la siguiente tabla:
+
+\begin{table}
     \centering
-    \begin{tabular}{|c|c|c|c|c|}
+    \begin{tabular}{|c|c|c|c|}
     \hline
-    \textbf{Punto} & $x$ (\textdegree C) & $y$ (RPM) & $z$ (kg) & $w$ (kWh) \\ \hline
-    1              & 25                  & 1500      & 50       & 200       \\ \hline
-    2              & 30                  & 1600      & 55       & 220       \\ \hline
-    3              & 28                  & 1550      & 52       & 210       \\ \hline
-    4              & 35                  & 1700      & 60       & 250       \\ \hline
-    5              & 40                  & 1800      & 65       & 280       \\ \hline
+    \textbf{Tienda} & \textbf{Ventas} & \textbf{Precios} & \textbf{Promocion}
+    1 & 4141 & 59 & 200 \\ \hline
+    2 & 3842 & 59 & 200 \\ \hline
+    3 & 3056 & 59 & 200 \\ \hline
+    4 & 3519 & 59 & 200 \\ \hline
+    5 & 4226 & 59 & 400 \\ \hline
+    6 & 4630 & 59 & 400 \\ \hline
+    7 & 3507 & 59 & 400 \\ \hline
+    8 & 3754 & 59 & 400 \\ \hline
+    9 & 5000 & 59 & 600 \\ \hline
+    10 & 5120 & 59 & 600 \\ \hline
+    11 & 5011 & 59 & 600 \\ \hline
+    12 & 5015 & 59 & 600 \\ \hline
+    13 & 1916 & 59 & 600 \\ \hline
+    14 & 675 & 79 & 200 \\ \hline
+    15 & 3636 & 79 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
+    1 & 4141 & 59 & 200 \\ \hline
     \end{tabular}
-    \caption{Tabla de datos}
-    \label{tab:datos}
-    \end{table}
+\end{table}
 
-Con estos datos se sospecha que el modelo que aproxima los datos es lineal.
-
-Sean $x,y$ y $z$ variables que describen la temperatura del ambiente en $C°$ la velocidad de la operacion en revoluciones por segundo
-y la carga implicada en la operacion. Sea $w = \alpha_0  + \alpha_1 x + \alpha_2 y + \alpha_3 z$ donde $\alpha_0,\alpha_1,\alpha_2 y \alpha_3$
-representan el cambio de todas estas variables. 
-
-Nuestro objetivo sera encontrar las variables $\alpha_0,\alpha_1,\alpha_2 y \alpha_3$ que predicen cual sera el consumo energetico de la maquina
-dados estos datos
-\section{Importancia del problema}
-
-Supongase que usted es un empresario que desea conocer el consumo energetico de una maquina en la cual usted ha invertido. Sus 
-trabajadores hacen un estudio y sacan los datos de la tabla anterior, entonces su deseo es conocer de acuerdo con esos datos cual es el
-gasto energetico de la maquina y saber si se pueden cambiar las condiciones del ambiente, velocidad y peso para que dicho consumo sea mas 
-minimo y asi ahorrar gastos.
+Nuestro deseo es predecir las ventas del shampoo
 \section{Problema de la relacion entre las horas de estudio y las clificaciones}
 
 Un profesor desea estudiar la relacion entre las horas de estudio de un estudiante y la nota que obtiene. El profesor
