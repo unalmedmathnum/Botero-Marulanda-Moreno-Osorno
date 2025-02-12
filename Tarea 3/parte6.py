@@ -5,7 +5,7 @@ u0 = 0.1
 v0 = 0.0
 t0 = 0.0
 h = 0.01
-t_parada = 20.0
+t_parada = 20.0 
 #Proporcionemos dos conjuntos de datos:
 #CONJUNTO1 (Temporales)
 epsilon1 = 0.1
@@ -23,6 +23,12 @@ def metodoEmodificado(epsilon,lam,omega,u0,v0,t0,t_parada):
     t = t0
     u = u0
     v = v0
-    resultados = []
-    resultados.append((t,u,v))
+    resultados = [] #Creamos este vector para seguir una trayectoria de los resultados obtenidos
+    resultados.append((t,u,v)) #Vamos almanecando la tripleta a medida que avanza el tiempo. 
+    while t < t_parada:
+        #Realizamos los pasos predictores
+        u_pred = u + h*f(t,u,v) 
+        v_pred = v + h*g(t,u,v,epsilon,lam,omega)
+        t = t + h
+        # 
     return
