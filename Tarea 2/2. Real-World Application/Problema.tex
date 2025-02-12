@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\title{Problema de consumo energetico de una cinta transportadora}
+\author{Juan E Osorno D.}
+\date{January 2025}
+
+\begin{document}
+
+\section{Contexto del problema precios y gastos promocionales de un shampoo}
+
+Una empresa de elementos para el aseo personal tienen un nuevo prodcuto de shampoo "Walgreens Shampoo + plus
+(16 oz)". El departamento de precios y marketing de la empresa desea conocer el precio y los gastos promocionales
+del nuevo producto que desean lanzar al mercado que ayuden a incrementar sus ventas en el mercado, para obtener 
+resultados mas fiables la empresa selecciona 35 ejemplos de tiendas donde venden su producto alrededor de todo 
+el pais en dolares, las cuales se pueden visualizaren la siguiente tabla:
+
+\begin{table}
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+    \hline
+    \textbf{Tienda} & \textbf{Ventas} & \textbf{Precios} & \textbf{Promocion}
+    1 & 4141 & 59 & 200 \\ \hline
+    2 & 3842 & 59 & 200 \\ \hline
+    3 & 3056 & 59 & 200 \\ \hline
+    4 & 3519 & 59 & 200 \\ \hline
+    5 & 4226 & 59 & 400 \\ \hline
+    6 & 4630 & 59 & 400 \\ \hline
+    7 & 3507 & 59 & 400 \\ \hline
+    8 & 3754 & 59 & 400 \\ \hline
+    9 & 5000 & 59 & 600 \\ \hline
+    10 & 5120 & 59 & 600 \\ \hline
+    11 & 5011 & 59 & 600 \\ \hline
+    12 & 5015 & 59 & 600 \\ \hline
+    13 & 1916 & 59 & 600 \\ \hline
+    14 & 675 & 79 & 200 \\ \hline
+    15 & 3636 & 79 & 200 \\ \hline
+    16 & 3224 & 79 & 200 \\ \hline
+    17 & 2295 & 79 & 200 \\ \hline
+    18 & 2730 & 79 & 400 \\ \hline
+    19 & 2618 & 79 & 400 \\ \hline
+    20 & 4421 & 79 & 400 \\ \hline
+    21 & 4113 & 79 & 600 \\ \hline
+    22 & 3746 & 79 & 600 \\ \hline
+    23 & 3532 & 79 & 600 \\ \hline
+    24 & 3825 & 79 & 600 \\ \hline
+    25 & 1096 & 79 & 200 \\ \hline
+    26 & 761 & 99 & 200 \\ \hline
+    27 & 2088 & 99 & 200 \\ \hline
+    28 & 820 & 99 & 200 \\ \hline
+    29 & 2114 & 99 & 400 \\ \hline
+    30 & 1882 & 99 & 400 \\ \hline
+    31 & 2159 & 99 & 400 \\ \hline
+    32 & 1602 & 99 & 400 \\ \hline
+    33 & 3354 & 99 & 600 \\ \hline
+    34 & 2927 & 99 & 600 \\ \hline
+    35 & 3031 & 99 & 600 \\ \hline
+    \end{tabular}
+\end{table}
+
+Sospechamos que el modelo que mejor aproxima estos datos es:
+
+\begin{center}
+    $z = \alpha_0 + \alpha_1 x + \alpha_2 y$
+\end{center}
+
+Nuestro objetivo sera entonces encontrar los $\alpha_0 , \alpha_1$ y $\alpha_2$ que satisfacen el sistema de ecuaciones
+$X \vec{a} = \vec{y}$ donde $X = \begin{pmatrix} 1 & x_1 & y_1 \\ 1 & x_2 & y_2 \\ ... & ... & ... \\ 1 & x_35 & y_35 \end{pmatrix}$
+y $\vec{b} = (\alpha_1, \alpha_2)$ como $\vec{y} = (y_1,y_2,...,y_35)$ donde $x$ y $y$ representan el precio y la promocion respectivamente.
+
+\section{Problema de la relacion entre las horas de estudio y las clificaciones}
+
+Un profesor desea estudiar la relacion entre las horas de estudio de un estudiante y la nota que obtiene. El profesor
+realiza una encuesta a sus estudiantes preguntando cuantas horas estudia, y realiza una tabla con sus notas obtenidas 
+en el parcial como sigue en la siguiente tabla:
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+    \textbf{Estudiante} & \textbf{Horas de Estudio (\(x\))} & \textbf{Calificación (\(y\))} \\
+    1  & 1  & 10   \\ \hline 
+    2  & 2  & 25   \\ \hline
+    3  & 3  & 40   \\ \hline
+    4  & 4  & 55   \\ \hline
+    5  & 5  & 70   \\ \hline
+    6  & 6  & 85   \\ \hline
+    7  & 7  & 95   \\ \hline
+    8  & 8  & 98   \\ \hline
+    9  & 9  & 99   \\ \hline
+    10 & 10 & 98  \\ \hline
+    11  & 7  & 95   \\ \hline
+    12  & 8  & 98   \\ \hline
+    13  & 9  & 99   \\ \hline
+    14 & 10 & 100  \\ \hline
+    \end{tabular}
+    \caption{Datos simulados de horas de estudio y calificación con tendencia a estabilización.}
+    \label{tabla:horas_estudio_aplanada}
+\end{table}
+
+Se sospecha que el modelo que mejor aproxima la nube de datos de la tabla anterior es la ecuacion
+
+\begin{center}
+    $y = \alpha /x + \beta$
+\end{center}
+
+reemplazando los datos de la tabla ecuacion formamos el sistema de ecuaciones $X \vec{b} = \vec{y}$. Donde $X$ es la matriz que cumple ser:
+
+$ X = \begin{pmatrix} 1 & 1/x_1 \\ 1 & 1/x_2 \\ ... \\ 1 & 1/x_14 \end{pmatrix}$
+
+y $\vec{b} = (A,B)$ como $\vec{y} = (y_1, y_2,...,y_14)$ son los vectores que satisfacen el sistema de ecuaciones anterior sustituyendo los datos
+de la tabla. 
+
+Nuestro siguiente paso sera solucionar el sistema.
+
+\end{document}
