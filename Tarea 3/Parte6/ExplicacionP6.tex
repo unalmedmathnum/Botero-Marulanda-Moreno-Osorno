@@ -24,12 +24,29 @@ Como vimos previamente la ED anterior se puede llevar a un sistema de EDOs, el c
         $\[
         \left\{
         \begin{array}{rcl}
-        v'_1  &=& v_2 \\
-        v'_2   &=& -(1+\epsilon \lambda \omega^2 cos(\omega \tau))(v_1 - \frac{\epsilon^2 v^3_1}{6})
+        v'_1  &=& v_2 & (1) \\ 
+        v'_2   &=& -(1+\epsilon \lambda \omega^2 cos(\omega \tau))(v_1 - \frac{\epsilon^2 v^3_1}{6}) & (2)
         \end{array}
         \right.
         \]$
 \end{center}
 
 Donde $v_1 = u$ y $v_2 = u'$.
+
+Iniciamos nuestro programa definiendo las variables que haran de nuestro conjunto de datos iniciales, las cuales
+sera $\epsilon, \lambda \omega \h$, un tiempo inicial, un tiempo final y una constante de frencuencia angular $w_0$.
+Seguimos con crear dos funciones (f y g) que haran de (1) y (2) y que tendran como entradas variables de este mismo tipo que
+luego seran modificadas por dos sucesiones:
+
+\begin{center}
+    $\[
+    \left\{
+    \begin{array}{rcl}
+    u^*  &=& u_n + h f(t_n,u_n,v_n)\\ 
+    v*   &=& v_n + h g(t_n,u_n,v_n)
+    \end{array}
+    \right.
+    \]$
+\end{center}
+
 \end{document}
