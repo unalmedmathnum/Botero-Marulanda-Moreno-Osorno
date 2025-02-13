@@ -21,7 +21,15 @@ a utilizar el metodo de Euler mejorado (Metodo de Heun) para aproximar las soluc
 Como vimos previamente la ED anterior se puede llevar a un sistema de EDOs, el cual es el siguiente:
 
 \begin{center}
-        
+        $\[
+        \left\{
+        \begin{array}{rcl}
+        v'_1  &=& v_2 \\
+        v'_2   &=& -(1+\epsilon \lambda \omega^2 cos(\omega \tau))(v_1 - \frac{\epsilon^2 v^3_1}{6})
+        \end{array}
+        \right.
+        \]$
 \end{center}
 
+Donde $v_1 = u$ y $v_2 = u'$.
 \end{document}
