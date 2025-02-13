@@ -5,7 +5,8 @@ u0 = 0.1
 v0 = 0.0
 t0 = 0.0
 h = 0.01
-t_parada = 20.0 
+t_parada = 20.0
+w0 = 0.1 
 #Proporcionemos dos conjuntos de datos:
 #CONJUNTO1 (Temporales)
 epsilon1 = 0.1
@@ -21,7 +22,7 @@ def f(t,u,v):
     return v
 def g(t,u,v,epsilon,lam,omega):
     # Aqui tenemos u'' = v' 
-    return -(1+epsilon*lam*omega**2*math.cos(omega*t))*(u-(epsilon**2*u**3)/6.0)
+    return -(1+epsilon*lam*omega**2*math.cos(omega*w0*t))*(u-(epsilon**2*u**3)/6.0)
 #Nuestro siguiente paso sera construir el metodo de Euler modificado para resolver nuestro sistema de EDOs. 
 def metodoEmodificado(epsilon,lam,omega,u0,v0,t0,t_parada,h):
     t = t0
