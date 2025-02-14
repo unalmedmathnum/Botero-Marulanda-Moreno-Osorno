@@ -1,4 +1,5 @@
 import math
+import matplotlib.pyplot as plt
 #Vamos a seguir los pasos descritos en nuestro documento.tex
 #Condiciones iniciales 
 u0 = 0.0
@@ -54,3 +55,18 @@ print("El resultado del conjunto de datos 2 es: ", Resultados_CONJUNTO2[-1])
 #print(matriz1)
 #matriz2 = [list(it) for it in Resultados_CONJUNTO2]
 #print(matriz2)
+# Extraemos las listas de tiempo, u y v para graficar
+t_vals = [item[0] for item in Resultados_CONJUNTO1]
+u_vals = [item[1] for item in Resultados_CONJUNTO1]
+v_vals = [item[2] for item in Resultados_CONJUNTO1]
+
+# Graficar las soluciones u(t) y v(t)
+plt.figure(figsize=(10, 5))
+plt.plot(t_vals, u_vals, label='u(t)', color='blue')
+plt.plot(t_vals, v_vals, label='v(t)', color='red')
+plt.xlabel('Tiempo t')
+plt.ylabel('Valores de la solución')
+plt.title('Solución del sistema usando el Método de Euler Modificado')
+plt.legend()
+plt.grid(True)
+plt.show()
