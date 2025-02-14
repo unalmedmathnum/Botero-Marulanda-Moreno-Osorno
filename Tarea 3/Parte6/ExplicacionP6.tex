@@ -1,72 +1,71 @@
 \documentclass{article}
-\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath, amssymb}  % Paquetes para matemáticas avanzadas
+\usepackage{graphicx}  % Paquete requerido para insertar imágenes
 
-\title{Detalles matematicos del codigo}
+\title{Detalles Matemáticos del Código}
+\author{}
+\date{}
 
 \begin{document}
-Consideremos la ecuacion presentada en el documento (4): 
-\begin{center}
-    $u''+(1+\epsilon \lambda \omega^2 cos(\omega \tau))(u - \frac{\epsilon^2 u^3}{6})$
-\end{center}
-donde
-\begin{center}
-    $\tau = wt$
-    $w_0 = \frac{g}{r_0}$
-    $\epsilon \lambda = \frac{\delta z}{r_0}$
-    $\omega = \frac{w}{w_0}$
-\end{center}
-Despues de realizar con detalles los pasos para convertir la ED (4) en un sistema de EDOs, visto previamente, vamos
-a utilizar el metodo de Euler mejorado (Metodo de Heun) para aproximar las soluciones de dicho sistema y la ED (4).
 
-Como vimos previamente la ED anterior se puede llevar a un sistema de EDOs, el cual es el siguiente:
+\maketitle
 
-\begin{center}
-        $\[
-        \left\{
-        \begin{array}{rcl}
-        v'_1  &=& v_2 & (1) \\ 
-        v'_2   &=& -(1+\epsilon \lambda \omega^2 cos(\omega \tau))(v_1 - \frac{\epsilon^2 v^3_1}{6}) & (2)
-        \end{array}
-        \right.
-        \]$
-\end{center}
+Consideremos la ecuación presentada en el documento (4):
+\begin{equation}
+    u''+(1+\epsilon \lambda \omega^2 \cos(\omega \tau))\left(u - \frac{\epsilon^2 u^3}{6}\right) = 0.
+\end{equation}
 
-Donde $v_1 = u$ y $v_2 = u'$.
+Donde:
+\begin{align*}
+    \tau &= \omega t, \\
+    \omega_0 &= \frac{g}{r_0}, \\
+    \epsilon \lambda &= \frac{\delta z}{r_0}, \\
+    \omega &= \frac{\omega}{\omega_0}.
+\end{align*}
 
-Entonces, ahora iniciamos nuestro programa definiendo las variables que haran de nuestro conjunto de datos iniciales, las cuales
-sera $\epsilon = 0.5, \lambda = 1.0, \Omega = 1.96, h$, un tiempo inicial, 0 en nuestro contexto, un tiempo final (Como se va perturbando la posicion angular y la velocidad hasta t_parada tiempo) y una constante de frencuencia angular $w_0$.
-Tomaremos de como valores iniciales (0,0.1), posicion angular en cero y velocidad 0.1.
-Seguimos con crear dos funciones (f y g) que haran de (1) y (2) y que tendran como entradas variables de este mismo tipo.
+Después de realizar con detalle los pasos para convertir la ecuación diferencial (4) en un sistema de EDOs, vamos a utilizar el **método de Euler mejorado** (también conocido como **método de Heun**) para aproximar las soluciones.
 
-Sabemos que el metodo de Heun para sistema de EDOs inicia modificando dos sucesiones: 
+El sistema de EDOs resultante es:
+\begin{equation}
+    \begin{cases}
+        v_1' = v_2,  \\
+        v_2' = -(1+\epsilon \lambda \omega^2 \cos(\omega \tau))\left(v_1 - \frac{\epsilon^2 v_1^3}{6}\right).
+    \end{cases}
+\end{equation}
 
-\begin{center}
-    $\[
-    \left\{
-    \begin{array}{rcl}
-    u^*  &=& u_n + h f(t_n,u_n,v_n)\\ 
-    v*   &=& v_n + h g(t_n,u_n,v_n)
-    \end{array}
-    \right.
-    \]$
-\end{center}
+Donde $v_1 = u$ y $v_2 = u'$. 
 
-las cuales en nuestro contexto son las aproximaciones a la posicion y la velocidad angular atravez del tiempi t_n con nuestros datos 
-iniciales. Llamaremos a estas sucesiones los pasos predictores que van a ir corrigiendo a su vez (siguiendo la idea del mismo metodo)
-a las sucesiones
+## Implementación Numérica
 
-\begin{center}
-    $\[
-    \left\{
-    \begin{array}{rcl}
-    u_{n+1}  &=& u_n +  \frac{h}{2}(f(t_n,u_n,v_n)+f(t_n + h,u^*,v^*))\\ 
-    v_{n+1}  &=& v_n +  \frac{h}{2}(g(t_n,u_n,v_n)+g(t_n + h,u^*,v^*))
-    \end{array}
-    \right.
-    \]$
-\end{center}
+Para resolver este sistema con el **método de Heun**, definimos las siguientes variables iniciales:
+\begin{align*}
+    \epsilon &= 0.5, \\
+    \lambda &= 1.0, \\
+    \Omega &= 1.96, \\
+    h &\text{ (paso temporal)}, \\
+    t_{\text{inicio}} &= 0, \\
+    t_{\text{parada}} &= 50.0, \\
+    \omega_0 &\text{ (constante de frecuencia angular)}.
+\end{align*}
 
-En el codigo para que esto funcione de manera iterativa, creamos un ciclo While el cual tiene como variable centinela 
-nuestro tiempi $t_{parada} = 50.0$, el cual ira ejecuantando estas dos sucesiones y guardando los datos en un vector,
-para hacer un seguimiento de los cambios.
+Los valores iniciales son $(0, 0.1)$, es decir, la posición angular es $0$ y la velocidad inicial es $0.1$.
+
+Definimos dos funciones $f$ y $g$ que corresponden a las ecuaciones (1) y (2):
+\begin{equation}
+    \begin{cases}
+        u^* = u_n + h f(t_n, u_n, v_n),  \\
+        v^* = v_n + h g(t_n, u_n, v_n).
+    \end{cases}
+\end{equation}
+
+Estas son las **sucesiones predictoras**, que nos permiten aproximar la posición y la velocidad angular en el tiempo $t_n$. Luego, aplicamos la corrección:
+\begin{equation}
+    \begin{cases}
+        u_{n+1} = u_n + \frac{h}{2} \left( f(t_n, u_n, v_n) + f(t_n + h, u^*, v^*) \right),  \\
+        v_{n+1} = v_n + \frac{h}{2} \left( g(t_n, u_n, v_n) + g(t_n + h, u^*, v^*) \right).
+    \end{cases}
+\end{equation}
+
+En el código, para que esto funcione iterativamente, creamos un ciclo **while** cuya condición de parada es $t_{\text{parada}} = 50.0$. Este ciclo ejecuta las actualizaciones y almacena los datos en un vector para analizar los cambios en la solución.
+
 \end{document}
