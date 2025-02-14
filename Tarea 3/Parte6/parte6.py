@@ -1,18 +1,18 @@
 import math
 #Vamos a seguir los pasos descritos en nuestro documento.tex
-#Condiciones iniciales (Temporales)
-u0 = 0.1
-v0 = 0.0
+#Condiciones iniciales 
+u0 = 0.0
+v0 = 0.1
 t0 = 0.0
 h = 0.01
 t_parada = 20.0
 w0 = 0.1 
 #Proporcionemos dos conjuntos de datos:
-#CONJUNTO1 (Temporales)
-epsilon1 = 0.1
-lam1 = 0.2
-omega1 = 1.0
-#CONJUNTO 2 (temporales)
+#CONJUNTO1 
+epsilon1 = 0.5
+lam1 = 1
+omega1 = 1.96
+#CONJUNTO 2 
 epsilon2 = 0.2
 lam2 = 0.3
 omega2 = 1.5
