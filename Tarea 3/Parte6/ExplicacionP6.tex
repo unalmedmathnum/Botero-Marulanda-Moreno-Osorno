@@ -33,10 +33,12 @@ Como vimos previamente la ED anterior se puede llevar a un sistema de EDOs, el c
 
 Donde $v_1 = u$ y $v_2 = u'$.
 
-Iniciamos nuestro programa definiendo las variables que haran de nuestro conjunto de datos iniciales, las cuales
-sera $\epsilon, \lambda \omega \h$, un tiempo inicial, un tiempo final y una constante de frencuencia angular $w_0$.
-Seguimos con crear dos funciones (f y g) que haran de (1) y (2) y que tendran como entradas variables de este mismo tipo que
-luego seran modificadas por dos sucesiones:
+Entonces, ahora iniciamos nuestro programa definiendo las variables que haran de nuestro conjunto de datos iniciales, las cuales
+sera $\epsilon = 0.5, \lambda = 1.0, \Omega = 1.96, h$, un tiempo inicial, 0 en nuestro contexto, un tiempo final (Como se va perturbando la posicion angular y la velocidad hasta t_parada tiempo) y una constante de frencuencia angular $w_0$.
+Tomaremos de como valores iniciales (0,0.1), posicion angular en cero y velocidad 0.1.
+Seguimos con crear dos funciones (f y g) que haran de (1) y (2) y que tendran como entradas variables de este mismo tipo.
+
+Sabemos que el metodo de Heun para sistema de EDOs inicia modificando dos sucesiones: 
 
 \begin{center}
     $\[
@@ -49,4 +51,22 @@ luego seran modificadas por dos sucesiones:
     \]$
 \end{center}
 
+las cuales en nuestro contexto son las aproximaciones a la posicion y la velocidad angular atravez del tiempi t_n con nuestros datos 
+iniciales. Llamaremos a estas sucesiones los pasos predictores que van a ir corrigiendo a su vez (siguiendo la idea del mismo metodo)
+a las sucesiones
+
+\begin{center}
+    $\[
+    \left\{
+    \begin{array}{rcl}
+    u_{n+1}  &=& u_n +  \frac{h}{2}(f(t_n,u_n,v_n)+f(t_n + h,u^*,v^*))\\ 
+    v_{n+1}  &=& v_n +  \frac{h}{2}(g(t_n,u_n,v_n)+g(t_n + h,u^*,v^*))
+    \end{array}
+    \right.
+    \]$
+\end{center}
+
+En el codigo para que esto funcione de manera iterativa, creamos un ciclo While el cual tiene como variable centinela 
+nuestro tiempi $t_{parada} = 50.0$, el cual ira ejecuantando estas dos sucesiones y guardando los datos en un vector,
+para hacer un seguimiento de los cambios.
 \end{document}
