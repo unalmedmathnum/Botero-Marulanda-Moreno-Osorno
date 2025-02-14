@@ -6,7 +6,7 @@ u0 = 0.0
 v0 = 0.1
 t0 = 0.0
 h = 0.01
-t_parada = 20.0
+t_parada = 51
 w0 = 0.1 
 #Proporcionemos dos conjuntos de datos:
 #CONJUNTO1 
