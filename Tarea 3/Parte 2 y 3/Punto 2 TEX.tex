@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[mathscr]{euscript}
+\usepackage{marvosym}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{bm}
+\renewcommand\qedsymbol{\Squarepipe}
+
+\titleformat{\section}
+    {\bfseries\little}
+    {\thetitle.\space}     
+    {}                
+    {}
+
+\begin{document}
+Luego de la lectura del paper 'Sloshing in coffee as a pumped pendulum' nos permitimos tener una noción acerca de cómo modelar la manera en cómo se mueve un líquido similar al agua en un envase cilíndrico, lo cual será equivalente al problema del café en una taza. Para este propósito veremos el movimiento de nuestro líquido dentro del recipiente como si fuera un único péndulo, cuyo pivote se desplaza en el tiempo. Para lo cual consideraremos la ecuación diferencial que modela la forma en la que cambia la posición angular del péndulo.\\
+\\
+Para nuestro caso, despreciaremos el movimiento horizontal del pivote (lo cual sería equivalente a ver cómo se comporta el liquido si estamos quietos y únicamente desplazamos nuestro recipiente de forma vertical). Para esto pensaremos en nuestra posición angular como una variable adimensional, obteniendo la siguiente ecuación diferencial:
+\[
+u''+(1+\epsilon\lambda\Omega^{2}\cos{\Omega\tau})(u-\frac{\epsilon^2u^3}{6})=0 \hspace{1cm}(4)
+\]
+A esta le llamaremos $(4)$, pues así es como viene rotulado en el texto citado previamente.\\
+\\
+Donde $\Omega=\frac{\omega}{\omega_0}$ y $u$ es una función de $\tau$ donde $\tau=\omega t$, donde $t$ representa el tiempo y $\omega$ la frecuencia angular, además $\omega^2_0=\frac{g}{r_0}$ y $\epsilon\lambda=-\frac{\Delta z}{r_0}$. En pro de observar el comportamiento de nuestro péndulo fijaremos alguno de estos valores o relaciones entre ellos. Fijaremos la relación entre $\omega$ y $\omega_0$, es decir $\Omega=1.01$, además $\epsilon=0.5$ y $\lambda=1$. En la siguiente sección exploraremos cómo llevar esta ecuación de segundo grado a un sistema de ecuaciones donde podamos usar las herramientas de las cuales disponemos, además de fijar los valores iniciales para tener un PVI.
+\end{document}

@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[mathscr]{euscript}
+\usepackage{marvosym}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{bm}
+\renewcommand\qedsymbol{\Squarepipe}
+
+\titleformat{\section}
+    {\bfseries\little}
+    {\thetitle.\space}     
+    {}                
+    {}
+
+\begin{document}
+
+Traigamos de vuelta la ecuación diferencial $(4)$ del documento base 'Sloshing in coffee as a pumped pendulum':
+
+\[
+u''+(1+\epsilon\lambda\Omega^{2}\cos{\Omega\tau})(u-\frac{\epsilon^2u^3}{6})=0 \hspace{1cm}(4)
+\]
+
+Dado que $u$ es la posición angular del péndulo y $u'$ la velocidad angular, consideraremos el caso en el que partimos desde el punto de 0 radianes con una velocidad inicial de 0.1 (pues $u'$ también es adimensional). Así, obtenemos el siguiente PVI.
+
+\[
+\begin{cases}
+    u''+(1+\epsilon\lambda\Omega^{2}\cos{\Omega\tau})(u-\frac{\epsilon^2u^3}{6})=0\\ \\
+    u(0)=0\hspace{0.3cm}u'(0)=0.1
+\end{cases}
+\]
+
+Llevemos esta ecuación diferencial de segundo orden a 2 ecuaciones diferenciales de orden 1.\\
+\\
+Sea $v_1=u$, $v_2=u'$ y $v_3=u''$, de esta forma, $v_1'=v_2$ y $v_2'=v_3=u''$, y por tanto $v_2'=(1+\epsilon\lambda\Omega^{2}\cos{\Omega\tau})(\frac{\epsilon^2v_1^3}{6}-v_1)$, así, nuestro PVI es equivalente a:
+
+\[
+\begin{cases}
+v_1'=v_2\\
+v_2'=(1+\epsilon\lambda\Omega^{2}\cos{\Omega\tau})(\frac{\epsilon^2v_1^3}{6}-v_1)\\ \\
+\begin{bmatrix}
+    v_1\\
+    v_2
+\end{bmatrix}
+(0)=
+\begin{bmatrix}
+    0\\
+    0.1
+\end{bmatrix}
+\end{cases}
+\]
+\end{document}
