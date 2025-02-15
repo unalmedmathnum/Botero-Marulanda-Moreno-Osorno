@@ -10,7 +10,7 @@ t_parada = 51
 w0 = 0.1 
 #Proporcionemos dos conjuntos de datos:
 #CONJUNTO1 
-epsilon1 = 0.5
+epsilon1 = 0.2
 lam1 = 1
 omega1 = 1.96
 #CONJUNTO 2 
