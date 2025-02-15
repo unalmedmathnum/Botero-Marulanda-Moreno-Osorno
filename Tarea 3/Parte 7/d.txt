@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\title{Analisis de resultados}
+\author{Yeison Estiben Botero Rivera.}
+\date{febrero 2025}
+
+\begin{document}
+
+\maketitle
+Ahora haremos el respectivo analisis de los resultados arrojados por el metodo usado
+en el punto 4 y el del punto 6,para esto compararemos los resultados de las graficas
+y ver cual es mejor y menos costosa.
+\vspace*{10}
+Para empezar hablaremos del coste computacional de los metodos implementados, el metodo usado en el punto
+4 es menos costoso computacionalmente que el metodo 6 lo cual ya nos da motivo para considerarlo mejor
+si es que ambos metodos aproximan de manera similar bajo los datos dados.
+Ahora llendo a las graficas de los puntos 4 y 6 notamos entre el intervalo de tiempo de 0 a 10 que sera
+el que analizaremos notamos que hay una baja no linealidad  en las graficas y que las graficas son
+similares en los valores de solucion,la diferencia importante se notara entre los valores de la
+solucion cuando estemos en un momento del sistema mas caotico esto  se explica porque heun es 
+eficiente con sistemas que se comportan de manera mas suave y no tan bien en sistemas mas caotico
+s esto porque los resonancia o tambien efectos no lineales amplian la diferencia respecto al valor
+verdadero de la solucion.
+\end{document}
